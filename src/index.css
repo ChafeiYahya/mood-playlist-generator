@@ -1,13 +1,210 @@
+/* Global Styles */
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column; 
+  min-height: 100vh; 
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.dark-mode {
+  --bg-color: #121212;
+  --text-color: #ffffff;
+  --input-bg: #333333;
+  --button-bg: #1f7afc;
+  --button-text-color: #ffffff;
+}
+
+.light-mode {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --input-bg: #f5f5f5;
+  --button-bg: #007bff;
+  --button-text-color: #ffffff;
+}
+
+
+
+.dark-mode, .light-mode {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  flex: 1; 
+}
+
+/* Add this to your CSS file */
+.home-container {
+  flex: 1; /* Allow this div to take remaining height */
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  padding: 20px; /* Add some padding */
+  width: 100%; /* Make sure it takes full width */
+}
+
+.login-button {
+  background-color: #1DB954; /* Spotify green */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 20px;
+  font-size: 16px;
+}
+
+.login-button:hover {
+  background-color: #1ed760;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Center items vertically */
+  padding: 10px 20px;
+  background-color: var(--bg-color);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar ul li {
+  margin: 0 15px;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: var(--text-color);
+  transition: color 0.3s;
+  font-size: 18px;
+}
+
+.dark-mode-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: var(--text-color);
+  transition: color 0.3s;
+  /* Add margin if you want some space between the toggle and the right edge */
+  margin-left: auto; /* Ensures it stays on the rightmost side */
+  padding: 5 10px; /* Optional: Add some padding */
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 400px; 
+  width: 100%; 
+}
+
+input {
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 16px;
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  border: 2px solid #09c949;
+  border-radius: 5px;
+  width: 100%;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+button {
+  margin-right: 20px;
+  background-color: #1db954; /* Spotify's green */
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #1ed760;
+}
+
+input[type="range"] {
+  margin: 0 10px;
+}
+
+
+.mood-result {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  border: 1px solid #ddd;
+  width: 100%; /* Make result full width */
+  max-width: 400px; /* Set max width for result */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.mood-result p {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0; /* Increased spacing between texts */
+}
+
+h1, h3 {
+  color: var(--text-color);
+  text-align: center;
+  margin: 20px 0; /* Added spacing for headers */
+}
+
+/* Responsive Media Queries */
+@media (max-width: 600px) {
+  .navbar ul {
+    flex-direction: column; /* Stack navbar items on smaller screens */
+  }
+
+  .mood-result {
+    width: 90%; /* Adjust result width for smaller screens */
+  }
+}
+
+.sticky-player {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #282828; /* Spotify's dark color */
+  color: white;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  z-index: 1000; /* Make sure it appears above other content */
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.cover-art {
+  width: 56px; /* Adjust size to Spotify's cover art */
+  height: 56px; 
+  margin-right: 10px;
+}
+
+.cover-art img {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px; /* Optional: rounded corners */
+}
+
+.track-info {
+  flex: 1; /* Allow track info to take up remaining space */
+  margin-right: 10px;
+  display: flex; /* Enable flexbox for better alignment */
+  flex-direction: column; /* Stack children vertically */
+  justify-content: center; /* Center vertically */
+  max-width: 150px; /* Set a max width for track info */
+  overflow: hidden; /* Prevent overflow */
 }
